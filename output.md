@@ -40,11 +40,11 @@ The starting address of the memory-mapped I/O for the framebuffer is
 `0x000B8000` [@wiki:vga-compat]. The memory is divided into 16 bit cells, where
 the 16 bits determine both the character, the foreground color and the
 background color. The lowest eight bits is the ASCII [@wiki:ascii] value of
-the character, bit 8 - 11 the foreground and bit 12 - 15 the background, as can be
-seen in the following figure:
+the character, bit 8 - 11 the foreground and bit 12 - 14 the background
+and bit 15 blink, seen in the following figure:
 
-    Bit:     | 15 14 13 12 | 11 10 9 8 | 7 6 5 4 3 2 1 0 |
-    Content: | BG          | FG        | ASCII           |
+    Bit:     | 15 | 14 13 12 | 11 10 9 8 | 7 6 5 4 3 2 1 0 |
+    Content: | Nk | BG       | FG        | ASCII           |
 
 The available colors are shown in the following table:
 
@@ -57,18 +57,18 @@ The available colors are shown in the following table:
 
 The first cell corresponds to row zero, column zero on the console.  Using an
 ASCII table, one can see that A corresponds to 65 or `0x41`. Therefore, to
-write the character A with a green foreground (2) and dark grey background (8)
+write the character A with a dark grey foreground (2) and green background (8)
 at place (0,0), the following assembly code instruction is used:
 
 ~~~ {.nasm}
-    mov [0x000B8000], 0x8241
+    mov word [0x000B8000], 0x2841
 ~~~
 
 The second cell then corresponds to row zero, column one and its address is
 therefore:
 
 ~~~
-    0x000B8000 + 16 = 0x000B8010
+    0x000B8000 + 2 = 0x000B8002
 ~~~
 
 Writing to the framebuffer can also be done in C by treating the address
