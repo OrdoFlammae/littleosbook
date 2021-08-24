@@ -157,12 +157,16 @@ for the second, since each descriptor is 8 bytes. The Requested Privilege Level
 level 0.
 
 Loading the segment selector registers is easy for the data registers - just
-copy the correct offsets to the registers:
+copy the correct offsets to the registers. However, there is one caveat. In
+order to assign values to these registers, you cannot move them directly.
+Instead, you need to assign values to a general-purpose register (ex. `eax`)
+first, then move from there into the segment selector register:
 
 ~~~ {.nasm}
-    mov ds, 0x10
-    mov ss, 0x10
-    mov es, 0x10
+    mov eax, 0x10
+    mov ds, eax
+    mov ss, eax
+    mov es, eax
     .
     .
     .
