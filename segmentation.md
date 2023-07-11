@@ -114,8 +114,8 @@ struct"](#packing-structs) as shown in the following example:
 
 ~~~ {.c}
     struct gdt {
-        unsigned int address;
         unsigned short size;
+        unsigned int address;
     } __attribute__((packed));
 ~~~
 
