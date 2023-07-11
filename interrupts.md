@@ -6,7 +6,7 @@ occurs when a hardware device, such as the keyboard, the serial port or the
 timer, signals the CPU that the state of the device has changed. The CPU itself
 can also send interrupts due to program errors, for example when a program
 references memory it doesn't have access to, or when a program divides a number
-by zero. Finally, there are also _software intterupts_, which are interrupts
+by zero. Finally, there are also _software interrupts_, which are interrupts
 that are caused by the `int` assembly code instruction, and they are often used for
 system calls.
 
