@@ -10,7 +10,13 @@ CHAPTERS = title.txt introduction.md environment_and_booting.md \
 BIB = bibliography.bib
 CITATION = citation_style.csl
 
-all: book.html book.pdf
+all: book.html book.pdf book.epub
+
+book.epub: $(CHAPTERS) $(CSS) $(TEX_HEADER) $(BIB) $(CITATION)
+	pandoc -s -f markdown+smart --toc --toc-depth=2 -H $(TEX_HEADER) --top-level-division=chapter \
+		   --epub-cover-image=images/cover.jpg --css=$(CSS) \
+		   --bibliography $(BIB) --csl $(CITATION) \
+		   $(CHAPTERS) -o $@
 
 book.html: $(CHAPTERS) $(CSS) $(HTML_TEMPLATE) $(BIB) $(CITATION)
 	pandoc -s -f markdown+smart -t html --toc -c $(CSS) --template $(HTML_TEMPLATE) \
@@ -25,7 +31,7 @@ book.pdf: $(CHAPTERS) $(TEX_HEADER) $(BIB) $(CITATION)
 ff: book.html
 	firefox book.html
 
-release: book.html book.pdf
+release: book.html book.pdf book.epub
 	mkdir -p ../littleosbook/images
 	cp images/*.png ../littleosbook/images/
 	cp book.pdf ../littleosbook/
@@ -33,4 +39,4 @@ release: book.html book.pdf
 	cp book.css ../littleosbook/
 
 clean:
-	rm -f book.pdf book.html
+	rm -f book.pdf book.html book.epub
