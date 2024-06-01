@@ -247,7 +247,7 @@ line command port. An example is shown below:
 
     /* The I/O ports */
 
-    /* All the I/O ports are calculated relative to the data port. This is because
+    /* All I/O ports are calculated relative to the data port. This is because
      * all serial ports (COM1, COM2, COM3, COM4) have their ports in the same
      * order, but they start at different values.
      */
