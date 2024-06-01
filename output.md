@@ -243,7 +243,7 @@ highest 8 bits, then the lowest 8 bits. This is done by sending `0x80` to the
 line command port. An example is shown below:
 
 ~~~ {.c}
-    #include "io.h" /* io.h is implement in the section "Moving the cursor" */
+    #include "io.h" /* io.h is implemented in the section "Moving the cursor" */
 
     /* The I/O ports */
 
