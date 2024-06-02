@@ -85,7 +85,7 @@ writing data (Type is Read/Write) to put in the other segment registers.
 The DPL specifies the _privilege levels_ required to use the segment. x86
 allows for four privilege levels (PL), 0 to 3, where PL0 is the most
 privileged. In most operating systems (eg. Linux and Windows), only PL0 and PL3
-are used. However, some operating system, such as MINIX, make use of all
+are used. However, some operating systems, such as MINIX, make use of all
 levels. The kernel should be able to do anything, therefore it uses segments
 with DPL set to 0 (also called kernel mode). The current privilege level (CPL)
 is determined by the segment selector in `cs`.
