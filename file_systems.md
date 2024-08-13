@@ -67,7 +67,7 @@ than others).
 
 ## Further Reading
 
-- The ideas behind the Plan 9 operating systems is worth taking a look at:
+- The ideas behind the Plan 9 operating system are worth taking a look at:
   <http://plan9.bell-labs.com/plan9/index.html>
 - Wikipedia's page on inodes: <http://en.wikipedia.org/wiki/Inode> and the
   inode pointer structure:

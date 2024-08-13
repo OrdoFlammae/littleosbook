@@ -95,7 +95,7 @@ The following code shows how this can be wrapped into a function:
     void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg)
     {
         fb[i] = c;
-        fb[i + 1] = ((bg & 0x0F) << 4) | (fg & 0x0F)
+        fb[i + 1] = ((bg & 0x0F) << 4) | (fg & 0x0F);
     }
 ~~~
 
@@ -243,11 +243,11 @@ highest 8 bits, then the lowest 8 bits. This is done by sending `0x80` to the
 line command port. An example is shown below:
 
 ~~~ {.c}
-    #include "io.h" /* io.h is implement in the section "Moving the cursor" */
+    #include "io.h" /* io.h is implemented in the section "Moving the cursor" */
 
     /* The I/O ports */
 
-    /* All the I/O ports are calculated relative to the data port. This is because
+    /* All I/O ports are calculated relative to the data port. This is because
      * all serial ports (COM1, COM2, COM3, COM4) have their ports in the same
      * order, but they start at different values.
      */

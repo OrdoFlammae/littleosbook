@@ -238,7 +238,7 @@ hardware to interrupts. The reasons for configuring the PIC are:
 - Set up the correct mode for the PIC.
 
 In the beginning there was only one PIC (PIC 1) and eight interrupts. As more
-hardware were added, 8 interrupts were too few. The solution
+hardware was added, 8 interrupts became insufficient. The solution
 chosen was to chain on another PIC (PIC 2) on the first PIC (see interrupt 2 on
 PIC 1).
 
