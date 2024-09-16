@@ -51,7 +51,7 @@ figure, with just the page table step removed. It is possible to mix 4 MB and 4
 KB pages.
 
 ![Translating virtual addresses (linear addresses) to physical addresses.
-](images/intel_4_2_linear_address_translation.png)
+](public/images/intel_4_2_linear_address_translation.png)
 
 The 20 bits pointing to the current PDT is stored in the register `cr3`. The
 lower 12 bits of `cr3` are used for configuration.

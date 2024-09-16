@@ -1,3 +1,5 @@
+BUILD_DIR = public
+
 CSS = book.css
 HTML_TEMPLATE = template.html
 TEX_HEADER = header.tex
@@ -10,34 +12,25 @@ CHAPTERS = title.txt introduction.md environment_and_booting.md \
 BIB = bibliography.bib
 CITATION = citation_style.csl
 
-all: book.html book.pdf book.epub
+.PHONY: all release
 
-book.epub: $(CHAPTERS) $(CSS) $(TEX_HEADER) $(BIB) $(CITATION)
+all: $(BUILD_DIR)/index.html $(BUILD_DIR)/book.pdf $(BUILD_DIR)/book.epub
+
+$(BUILD_DIR)/book.epub: $(CHAPTERS) $(BUILD_DIR)/$(CSS) $(TEX_HEADER) $(BIB) $(CITATION)
 	pandoc -s -f markdown+smart --toc --toc-depth=2 -H $(TEX_HEADER) --top-level-division=chapter \
-			 --epub-cover-image=images/cover.jpg --css=$(CSS) \
+			 --epub-cover-image=public/images/cover.jpg --css=$(BUILD_DIR)/$(CSS) \
 			 --bibliography $(BIB) --csl $(CITATION) \
 			 $(CHAPTERS) -o $@
 
-book.html: $(CHAPTERS) $(CSS) $(HTML_TEMPLATE) $(BIB) $(CITATION)
+$(BUILD_DIR)/index.html: $(CHAPTERS) $(BUILD_DIR)/$(CSS) $(HTML_TEMPLATE) $(BIB) $(CITATION)
 	pandoc -s -f markdown+smart -t html --toc -c $(CSS) --template $(HTML_TEMPLATE) \
 			 --bibliography $(BIB) --csl $(CITATION) --number-sections \
 			 $(CHAPTERS) -o $@
 
-book.pdf: $(CHAPTERS) $(TEX_HEADER) $(BIB) $(CITATION)
+$(BUILD_DIR)/book.pdf: $(CHAPTERS) $(TEX_HEADER) $(BIB) $(CITATION)
 	pandoc --toc -H $(TEX_HEADER) --pdf-engine=pdflatex --top-level-division=chapter \
 			 --no-highlight --bibliography $(BIB) --csl $(CITATION) \
 			 $(CHAPTERS) -o $@
 
-ff: book.html
-	firefox book.html
-
-release: book.html book.pdf book.epub
-	mkdir -p ../littleosbook/images
-	cp images/*.png ../littleosbook/images/
-	cp book.epub ../littleosbook/
-	cp book.pdf ../littleosbook/
-	cp book.html ../littleosbook/index.html
-	cp book.css ../littleosbook/
-
 clean:
-	rm -f book.pdf book.html book.epub
+	rm -f $(BUILD_DIR)/index.html $(BUILD_DIR)/book.pdf $(BUILD_DIR)/book.epub

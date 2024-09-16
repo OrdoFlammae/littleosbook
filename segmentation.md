@@ -14,7 +14,7 @@ the physical memory can be accessed. (See the chapter ["Paging"](#paging) for
 how to enable paging.)
 
 ![Translation of logical addresses to linear addresses.
-](images/intel_3_5_logical_to_linear.png)
+](public/images/intel_3_5_logical_to_linear.png)
 
 To enable segmentation you need to set up a table that describes each segment -
 a _segment descriptor table_. In x86, there are two types of descriptor tables:

@@ -75,7 +75,7 @@ chain of small programs, each one more "powerful" than the previous one, where
 the operating system is the last "program". See the following figure for an
 example of the boot process:
 
-![An example of the boot process. Each box is a program.](images/boot_chain.png)
+![An example of the boot process. Each box is a program.](public/images/boot_chain.png)
 
 ### BIOS
 When the PC is turned on, the computer will start a small program that adheres
