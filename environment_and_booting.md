@@ -259,7 +259,7 @@ configuration file is given below:
 
 ~~~
     megs:            32
-    display_library: sdl
+    display_library: sdl2
     romimage:        file=/usr/share/bochs/BIOS-bochs-latest
     vgaromimage:     file=/usr/share/bochs/VGABIOS-lgpl-latest
     ata0-master:     type=cdrom, path=os.iso, status=inserted
