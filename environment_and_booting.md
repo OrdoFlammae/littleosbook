@@ -19,7 +19,7 @@ Once Ubuntu is installed, either physical or virtual, the following packages
 should be installed using `apt-get`:
 
 ~~~ {.bash}
-    sudo apt-get install build-essential nasm xorriso grub-pc-bin bochs bochs-sdl
+    sudo apt-get install build-essential nasm xorriso grub-pc-bin grub-efi-ia32-bin mtools bochs bochs-sdl
 ~~~
 
 ### Programming Languages
