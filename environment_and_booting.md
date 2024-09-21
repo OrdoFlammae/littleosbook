@@ -270,8 +270,8 @@ configuration file is given below:
 ~~~
 
 You might need to change the path to `romimage` and `vgaromimage` depending on
-how you installed Bochs. More information about the Bochs config file can be
-found at Boch's website [@bochs-config].
+how you installed Bochs. More information about the Bochs configuration file can be
+found at Bochs' website [@bochs-config].
 
 If you saved the configuration in a file named `bochsrc.txt` then you can run
 Bochs with the following command:
@@ -289,7 +289,7 @@ of this, you will have to go into the Bochs prompt, which will be in the termina
 that initiated Bochs. Then type `c`, as a command. Then, Bochs will load your
 OS.
 
-After quitting Bochs, display the log produced by Boch:
+After quitting Bochs, display the log produced by Bochs:
 
 ~~~
     cat bochslog.txt
