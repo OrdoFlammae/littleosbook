@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Pandoc
-        run: sudo apt-get install -y pandoc
+        run: sudo apt-get install -y pandoc pandoc-citeproc
 
       # Build the artifacts
       - name: Build book formats
